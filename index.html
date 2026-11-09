@@ -272,43 +272,44 @@
             </div>
 
             <!-- SIMULATEUR DE TARIF INTERACTIF EN TEMPS RÉEL -->
-            <div class="max-w-5xl mx-auto px-4 py-8 relative z-20 my-4">
-                <div class="bg-white rounded-3xl p-6 sm:p-8 border border-heri-border/80 shadow-md relative overflow-hidden">
+            <div class="max-w-5xl mx-auto px-4 py-6 sm:py-8 relative z-20 my-4">
+                <div class="bg-white rounded-2xl md:rounded-3xl p-5 sm:p-8 border border-heri-border/80 shadow-md relative overflow-hidden">
                     <!-- Liseré de dorure supérieur -->
                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-heri-gold/60 via-heri-blue/40 to-heri-gold/60"></div>
 
-                    <div class="text-center mb-6">
-                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-heri-blue tracking-tight">Estimez le coût de vos cours</h2>
-                        <p class="text-xs text-heri-text/60 mt-1">Tarifs horaires indiqués hors et après déduction de 50% du crédit d'impôt (CESU).</p>
+                    <div class="text-center mb-5 sm:mb-6">
+                        <h2 class="font-serif text-xl sm:text-3xl font-bold text-heri-blue tracking-tight">Estimez le coût de vos cours</h2>
+                        <p class="text-[11px] sm:text-xs text-heri-text/60 mt-1">Tarifs horaires indiqués hors et après déduction de 50% du crédit d'impôt (CESU).</p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
-                        <div>
-                            <label for="calc-level" class="block text-[11px] font-bold uppercase tracking-wider text-heri-blue/80 mb-1.5">Niveau de l'élève</label>
-                            <select id="calc-level" onchange="calculateCost()" class="w-full bg-white border border-heri-border/80 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-medium text-heri-blue shadow-sm hover:border-heri-gold focus:outline-none focus:ring-2 focus:ring-heri-gold/40 focus:border-heri-gold transition-all cursor-pointer">
+                    <div class="flex flex-col md:flex-row gap-4 sm:gap-6 mb-6">
+                        <div class="w-full">
+                            <label for="calc-level" class="block text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-heri-blue/80 mb-1.5">Niveau de l'élève</label>
+                            <select id="calc-level" onchange="calculateCost()" class="w-full bg-white border border-heri-border/80 rounded-xl px-3 sm:px-3.5 py-2.5 text-xs sm:text-sm font-medium text-heri-blue shadow-sm hover:border-heri-gold focus:outline-none focus:ring-2 focus:ring-heri-gold/40 focus:border-heri-gold transition-all cursor-pointer">
                                 <option value="15-20">Primaire (Lecture, Calcul, Éléments de base)</option>
                                 <option value="20-25" selected>Collège (Préparation Brevet)</option>
                                 <option value="25-30">Lycée (Préparation Baccalauréat)</option>
                                 <option value="30-35">Études supérieures & adultes</option>
                             </select>
                         </div>
-                        <div>
-                            <label for="calc-distance" class="block text-[11px] font-bold uppercase tracking-wider text-heri-blue/80 mb-1.5">Localisation par rapport à Saint-Lys</label>
-                            <select id="calc-distance" onchange="calculateCost()" class="w-full bg-white border border-heri-border/80 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-medium text-heri-blue shadow-sm hover:border-heri-gold focus:outline-none focus:ring-2 focus:ring-heri-gold/40 focus:border-heri-gold transition-all cursor-pointer">
-                                <option value="near" selected>Moins de 15 km (Saint-Lys, Tournefeuille, Cugnaux...)</option>
+                        <div class="w-full">
+                            <label for="calc-distance" class="block text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-heri-blue/80 mb-1.5">Localisation par rapport à Saint-Lys</label>
+                            <select id="calc-distance" onchange="calculateCost()" class="w-full bg-white border border-heri-border/80 rounded-xl px-3 sm:px-3.5 py-2.5 text-xs sm:text-sm font-medium text-heri-blue shadow-sm hover:border-heri-gold focus:outline-none focus:ring-2 focus:ring-heri-gold/40 focus:border-heri-gold transition-all cursor-pointer truncate text-ellipsis">
+                                <option value="near" selected>Moins de 15 km (Saint-Lys, Tournefeuille...)</option>
                                 <option value="far">Entre 15 et 25 km (Toulouse centre, Blagnac...)</option>
                             </select>
                         </div>
                     </div>
 
                     <!-- Panneau de calcul du prix -->
-                    <div class="bg-heri-cream/50 p-5 rounded-2xl border border-heri-border/60 grid grid-cols-1 sm:grid-cols-2 gap-4 text-center items-center">
-                        <div class="py-1">
-                            <span class="text-[11px] font-semibold text-heri-text/60 uppercase tracking-wider block mb-1">Tarif brut facturé</span>
+                    <div class="bg-heri-cream/50 p-4 sm:p-5 rounded-2xl border border-heri-border/60 flex flex-col md:flex-row gap-4 text-center items-center justify-around">
+                        <div class="py-1 w-full md:w-auto">
+                            <span class="text-[10px] sm:text-[11px] font-semibold text-heri-text/60 uppercase tracking-wider block mb-1">Tarif brut facturé</span>
                             <span id="calc-gross" class="font-serif text-2xl sm:text-3xl font-bold text-heri-blue block">20 € / h</span>
                         </div>
-                        <div class="border-t sm:border-t-0 sm:border-l border-heri-border/60 pt-3 sm:pt-0 sm:pl-4 py-1">
-                            <span class="text-[11px] font-semibold text-heri-blue/70 uppercase tracking-wider block mb-1">
+                        <div class="w-full md:w-px h-px md:h-12 bg-heri-border/80"></div>
+                        <div class="py-1 w-full md:w-auto">
+                            <span class="text-[10px] sm:text-[11px] font-semibold text-heri-blue/70 uppercase tracking-wider block mb-1">
                                 Reste à charge après crédit d'impôt (-50%)
                             </span>
                             <div class="inline-block bg-heri-gold/15 text-heri-blueDark px-4 py-1.5 rounded-xl border border-heri-gold/30 shadow-sm mt-0.5">
@@ -318,7 +319,7 @@
                     </div>
 
                     <div class="mt-6 text-center">
-                        <button type="button" onclick="showPage('devis')" class="w-full sm:w-auto px-7 py-3 bg-heri-gold text-heri-blueDark font-bold text-xs sm:text-sm rounded-xl hover:bg-heri-goldHover transition-all shadow-sm hover:shadow-md border border-heri-goldHover/30">
+                        <button type="button" onclick="showPage('devis')" class="w-full sm:w-auto px-6 sm:px-7 py-3 bg-heri-gold text-heri-blueDark font-bold text-xs sm:text-sm rounded-xl hover:bg-heri-goldHover transition-all shadow-sm hover:shadow-md border border-heri-goldHover/30">
                             Obtenir une proposition sur-mesure gratuite
                         </button>
                     </div>
@@ -704,65 +705,105 @@
             </div>
 
             <!-- Grille tarifaire -->
-            <div class="bg-white rounded-3xl overflow-hidden border border-heri-border shadow-md mb-12">
-                <div class="bg-heri-blue text-white p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-heri-blueLight/30">
+            <div class="bg-white rounded-2xl md:rounded-3xl overflow-hidden border border-heri-border shadow-md mb-12">
+                <div class="bg-heri-blue text-white p-5 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-heri-blueLight/30">
                     <div>
-                        <span class="text-xs font-semibold text-heri-gold uppercase tracking-wider block mb-1">Service à la personne (CESU)</span>
-                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-heri-cream">Tarifs appliqués selon le niveau & la distance (Saint-Lys)</h3>
+                        <span class="text-[10px] sm:text-xs font-semibold text-heri-gold uppercase tracking-wider block mb-1">Service à la personne (CESU)</span>
+                        <h3 class="font-serif text-lg sm:text-2xl font-bold text-heri-cream">Tarifs appliqués selon le niveau & la distance</h3>
                     </div>
-                    <div class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-xl text-xs font-medium border border-white/15 shrink-0">
+                    <div class="flex items-center gap-2 bg-white/10 px-3 sm:px-4 py-2 rounded-xl text-[11px] sm:text-xs font-medium border border-white/15 shrink-0 self-start md:self-auto">
                         <svg class="w-4 h-4 text-heri-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
                         <span>Avance immédiate -50%</span>
                     </div>
                 </div>
 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse text-xs sm:text-sm">
-                        <thead>
+                <div class="w-full">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead class="hidden md:table-header-group">
                             <tr class="bg-heri-cream/60 border-b border-heri-border text-heri-blue font-serif font-semibold text-xs uppercase tracking-wider">
-                                <th class="p-4 sm:p-5">Niveau scolaire</th>
-                                <th class="p-4 sm:p-5">&lt; 15 km de Saint-Lys</th>
-                                <th class="p-4 sm:p-5">&gt; 15 km de Saint-Lys</th>
-                                <th class="p-4 sm:p-5 bg-heri-gold/10 text-heri-blueDark">Reste à charge après crédit d'impôt</th>
+                                <th class="p-4 lg:p-5">Niveau scolaire</th>
+                                <th class="p-4 lg:p-5">&lt; 15 km de Saint-Lys</th>
+                                <th class="p-4 lg:p-5">&gt; 15 km de Saint-Lys</th>
+                                <th class="p-4 lg:p-5 bg-heri-gold/10 text-heri-blueDark">Reste à charge après crédit d'impôt</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-heri-border text-heri-text font-medium">
-                            <tr class="hover:bg-heri-cream/40 transition-colors">
-                                <td class="p-4 sm:p-5 font-serif font-bold text-base text-heri-blue">Primaire</td>
-                                <td class="p-4 sm:p-5 text-heri-text/80">15 € / h</td>
-                                <td class="p-4 sm:p-5 text-heri-text/80">20 € / h</td>
-                                <td class="p-4 sm:p-5 bg-heri-gold/5">
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-heri-gold/20 border border-heri-gold/40 text-heri-blueDark font-serif font-bold text-sm">
+                        <tbody class="divide-y divide-heri-border text-heri-text font-medium block md:table-row-group">
+                            <tr class="hover:bg-heri-cream/40 transition-colors block md:table-row p-4 md:p-0">
+                                <td class="flex justify-between items-center md:table-cell p-2 md:p-4 lg:p-5 font-serif font-bold text-base text-heri-blue border-b border-heri-border/40 md:border-0 mb-2 md:mb-0">
+                                    <span class="md:hidden text-[10px] uppercase text-heri-text/50 tracking-wider">Niveau</span>
+                                    <span>Primaire</span>
+                                </td>
+                                <td class="flex justify-between items-center md:table-cell p-2 md:p-4 lg:p-5 text-heri-text/80 text-sm">
+                                    <span class="md:hidden text-[11px] text-heri-text/70">&lt; 15 km (Saint-Lys)</span>
+                                    <span>15 € / h</span>
+                                </td>
+                                <td class="flex justify-between items-center md:table-cell p-2 md:p-4 lg:p-5 text-heri-text/80 text-sm">
+                                    <span class="md:hidden text-[11px] text-heri-text/70">&gt; 15 km (Toulouse)</span>
+                                    <span>20 € / h</span>
+                                </td>
+                                <td class="flex justify-between items-center md:table-cell p-3 md:p-4 lg:p-5 bg-heri-gold/10 md:bg-transparent mt-3 md:mt-0 rounded-xl md:rounded-none md:bg-heri-gold/5">
+                                    <span class="md:hidden text-[11px] font-bold text-heri-blueDark">Reste à charge</span>
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white md:bg-heri-gold/20 border border-heri-gold/30 md:border-heri-gold/40 text-heri-blueDark font-serif font-bold text-sm shadow-sm md:shadow-none">
                                         7,50 € à 10,00 € / h
                                     </span>
                                 </td>
                             </tr>
-                            <tr class="hover:bg-heri-cream/40 transition-colors">
-                                <td class="p-4 sm:p-5 font-serif font-bold text-base text-heri-blue">Collège</td>
-                                <td class="p-4 sm:p-5 text-heri-text/80">20 € / h</td>
-                                <td class="p-4 sm:p-5 text-heri-text/80">25 € / h</td>
-                                <td class="p-4 sm:p-5 bg-heri-gold/5">
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-heri-gold/20 border border-heri-gold/40 text-heri-blueDark font-serif font-bold text-sm">
+                            <tr class="hover:bg-heri-cream/40 transition-colors block md:table-row p-4 md:p-0">
+                                <td class="flex justify-between items-center md:table-cell p-2 md:p-4 lg:p-5 font-serif font-bold text-base text-heri-blue border-b border-heri-border/40 md:border-0 mb-2 md:mb-0">
+                                    <span class="md:hidden text-[10px] uppercase text-heri-text/50 tracking-wider">Niveau</span>
+                                    <span>Collège</span>
+                                </td>
+                                <td class="flex justify-between items-center md:table-cell p-2 md:p-4 lg:p-5 text-heri-text/80 text-sm">
+                                    <span class="md:hidden text-[11px] text-heri-text/70">&lt; 15 km (Saint-Lys)</span>
+                                    <span>20 € / h</span>
+                                </td>
+                                <td class="flex justify-between items-center md:table-cell p-2 md:p-4 lg:p-5 text-heri-text/80 text-sm">
+                                    <span class="md:hidden text-[11px] text-heri-text/70">&gt; 15 km (Toulouse)</span>
+                                    <span>25 € / h</span>
+                                </td>
+                                <td class="flex justify-between items-center md:table-cell p-3 md:p-4 lg:p-5 bg-heri-gold/10 md:bg-transparent mt-3 md:mt-0 rounded-xl md:rounded-none md:bg-heri-gold/5">
+                                    <span class="md:hidden text-[11px] font-bold text-heri-blueDark">Reste à charge</span>
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white md:bg-heri-gold/20 border border-heri-gold/30 md:border-heri-gold/40 text-heri-blueDark font-serif font-bold text-sm shadow-sm md:shadow-none">
                                         10,00 € à 12,50 € / h
                                     </span>
                                 </td>
                             </tr>
-                            <tr class="hover:bg-heri-cream/40 transition-colors">
-                                <td class="p-4 sm:p-5 font-serif font-bold text-base text-heri-blue">Lycée</td>
-                                <td class="p-4 sm:p-5 text-heri-text/80">25 € / h</td>
-                                <td class="p-4 sm:p-5 text-heri-text/80">30 € / h</td>
-                                <td class="p-4 sm:p-5 bg-heri-gold/5">
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-heri-gold/20 border border-heri-gold/40 text-heri-blueDark font-serif font-bold text-sm">
+                            <tr class="hover:bg-heri-cream/40 transition-colors block md:table-row p-4 md:p-0">
+                                <td class="flex justify-between items-center md:table-cell p-2 md:p-4 lg:p-5 font-serif font-bold text-base text-heri-blue border-b border-heri-border/40 md:border-0 mb-2 md:mb-0">
+                                    <span class="md:hidden text-[10px] uppercase text-heri-text/50 tracking-wider">Niveau</span>
+                                    <span>Lycée</span>
+                                </td>
+                                <td class="flex justify-between items-center md:table-cell p-2 md:p-4 lg:p-5 text-heri-text/80 text-sm">
+                                    <span class="md:hidden text-[11px] text-heri-text/70">&lt; 15 km (Saint-Lys)</span>
+                                    <span>25 € / h</span>
+                                </td>
+                                <td class="flex justify-between items-center md:table-cell p-2 md:p-4 lg:p-5 text-heri-text/80 text-sm">
+                                    <span class="md:hidden text-[11px] text-heri-text/70">&gt; 15 km (Toulouse)</span>
+                                    <span>30 € / h</span>
+                                </td>
+                                <td class="flex justify-between items-center md:table-cell p-3 md:p-4 lg:p-5 bg-heri-gold/10 md:bg-transparent mt-3 md:mt-0 rounded-xl md:rounded-none md:bg-heri-gold/5">
+                                    <span class="md:hidden text-[11px] font-bold text-heri-blueDark">Reste à charge</span>
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white md:bg-heri-gold/20 border border-heri-gold/30 md:border-heri-gold/40 text-heri-blueDark font-serif font-bold text-sm shadow-sm md:shadow-none">
                                         12,50 € à 15,00 € / h
                                     </span>
                                 </td>
                             </tr>
-                            <tr class="hover:bg-heri-cream/40 transition-colors">
-                                <td class="p-4 sm:p-5 font-serif font-bold text-base text-heri-blue">Études supérieures</td>
-                                <td class="p-4 sm:p-5 text-heri-text/80">30 € / h</td>
-                                <td class="p-4 sm:p-5 text-heri-text/80">35 € / h</td>
-                                <td class="p-4 sm:p-5 bg-heri-gold/5">
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-heri-gold/20 border border-heri-gold/40 text-heri-blueDark font-serif font-bold text-sm">
+                            <tr class="hover:bg-heri-cream/40 transition-colors block md:table-row p-4 md:p-0">
+                                <td class="flex justify-between items-center md:table-cell p-2 md:p-4 lg:p-5 font-serif font-bold text-base text-heri-blue border-b border-heri-border/40 md:border-0 mb-2 md:mb-0">
+                                    <span class="md:hidden text-[10px] uppercase text-heri-text/50 tracking-wider">Niveau</span>
+                                    <span>Études supérieures</span>
+                                </td>
+                                <td class="flex justify-between items-center md:table-cell p-2 md:p-4 lg:p-5 text-heri-text/80 text-sm">
+                                    <span class="md:hidden text-[11px] text-heri-text/70">&lt; 15 km (Saint-Lys)</span>
+                                    <span>30 € / h</span>
+                                </td>
+                                <td class="flex justify-between items-center md:table-cell p-2 md:p-4 lg:p-5 text-heri-text/80 text-sm">
+                                    <span class="md:hidden text-[11px] text-heri-text/70">&gt; 15 km (Toulouse)</span>
+                                    <span>35 € / h</span>
+                                </td>
+                                <td class="flex justify-between items-center md:table-cell p-3 md:p-4 lg:p-5 bg-heri-gold/10 md:bg-transparent mt-3 md:mt-0 rounded-xl md:rounded-none md:bg-heri-gold/5">
+                                    <span class="md:hidden text-[11px] font-bold text-heri-blueDark">Reste à charge</span>
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white md:bg-heri-gold/20 border border-heri-gold/30 md:border-heri-gold/40 text-heri-blueDark font-serif font-bold text-sm shadow-sm md:shadow-none">
                                         15,00 € à 17,50 € / h
                                     </span>
                                 </td>
